@@ -107,10 +107,15 @@ The API will be available at `http://127.0.0.1:8000`.
 ### API Overview
 - `GET /` — Health check
 - `POST /groups/` — Create a group
+- `POST /groups/{group_id}/members/{user_id}` — Add a user to a group
+- `DELETE /groups/{group_id}/members/{user_id}` — Remove a user from a group (only if their balance is zero)
 - `POST /expenses/` — Add an expense
 - `GET /balances/` — Get balances
 
-Explore the full API docs at `http://127.0.0.1:8000/docs` (Swagger UI).
+**Note:**
+- A user can only be removed from a group if their balance in that group is zero (they neither owe nor are owed money).
+
+Explore the full API docs and test endpoints interactively using **Swagger UI** at `http://127.0.0.1:8000/docs` (or `/docs` on your deployment).
 
 ## Contributing
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
